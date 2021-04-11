@@ -47,3 +47,13 @@ exports.get_end_by_id = function(req, res) {
     });
  }
  
+exports.find_with_Cep= function (req,res){
+   Message.findOne({"cep":req.params.cep},function(err, endereco) {
+       if (err)
+       res.send({"status":"Menssagem não existe",err});
+       if(endereco)
+       res.json(endereco);
+       else 
+       res.send({"status":"Menssagem não existe"});
+   });
+}

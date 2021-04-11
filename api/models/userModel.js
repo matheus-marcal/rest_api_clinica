@@ -59,7 +59,6 @@ var userSchema = new Schema({
         type:String,
         required: [function() { return this.role == "medico"},"CRM é obrigatorio para medico"]
     },
-    endereco:[String],
    Created_date: {
       type: Date,
       default: Date.now

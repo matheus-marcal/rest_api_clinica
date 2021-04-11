@@ -72,3 +72,13 @@ exports.login = function (req,res){
         res.send({"erro":"usuario não existe","erroid":1});
         });
 };
+exports.find_with_role= function (req,res){
+   User.find({"role":req.params.role},function(err, user) {
+       if (err)
+       res.send({"status":"Menssagem não existe",err});
+       if(user)
+       res.json(user);
+       else 
+       res.send({"status":"Menssagem não existe"});
+   });
+}

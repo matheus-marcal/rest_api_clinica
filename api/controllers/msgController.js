@@ -78,3 +78,13 @@ exports.find_with_title= function (req,res){
         res.send({"status":"Menssagem não existe"});
     });
 }
+exports.find_with_role= function (req,res){
+   Message.find({"role":req.params.role},function(err, user) {
+       if (err)
+       res.send({"status":"Menssagem não existe",err});
+       if(user)
+       res.json(user);
+       else 
+       res.send({"status":"Menssagem não existe"});
+   });
+}
