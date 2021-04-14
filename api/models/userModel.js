@@ -39,7 +39,7 @@ var userSchema = new Schema({
         required: [function() { return this.role == "paciente"},"Altura é obrigatorio para paciente"]
     },
     tiposanguineo:{
-        type:Number,
+        type:String,
         enum:['O-','O+','A-','A+','B-','B+','AB-','AB+'],
         required: [function() { return this.role == "paciente"},"Tipo Sanguineo é obrigatorio para paciente"]
     },

@@ -1,4 +1,5 @@
-var express = require('express'),
+var express = require('express')
+var cors = require('cors')
 app = express(),
 port = process.env.PORT || 3000,
 mongoose = require('mongoose'),
@@ -11,6 +12,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/msgdb');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 var routes = require('./routes');
 routes(app);
 
