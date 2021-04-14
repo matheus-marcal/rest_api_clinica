@@ -4,9 +4,7 @@ var messages = require('./api/controllers/msgController');
 var user = require('./api/controllers/userController');
 var endereco = require('./api/controllers/enderecoController');
 var agenda = require('./api/controllers/agendaController');
-var cors = require('cors')
 // messages Routes
-app.use(cors())
 app.route('/messages')
    .get(messages.list_all_messages)
    .post(messages.create_a_message);
@@ -28,8 +26,8 @@ app.route('/user/:userId')
 app.route('/user/role/:role')
     .get(user.find_with_role)
 app.route('/login')
-     .post(messages.login)
-    // .post(user.login)
+    //  .post(messages.login)
+     .post(user.login)
 app.route('/endereco')
     .get(endereco.list_all_end)
     .post(endereco.create_a_end);
